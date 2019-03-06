@@ -13,6 +13,7 @@
   "scripts": {
     "create": "yarn run build && yarn run test",
     "build": "tsc -p .",
+    "test": "yarn build && reddit-saved",
     "refresh": "rm -rf ./node_modules ./package-lock.json && yarn install"
   },
   "author": "Chris Lucas",
@@ -22,11 +23,11 @@
   },
   "devDependencies": {
     "@types/node": "^11.10.4",
-    "@types/snoowrap": "^1.15.3",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "cli-spinner": "^0.2.10",
     "dotenv": "^6.2.0",
     "snoowrap": "^1.15.2"
   }
