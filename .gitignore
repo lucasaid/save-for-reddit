@@ -30,7 +30,8 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+build
+public
 
 # Dependency directories
 node_modules/
@@ -53,7 +54,6 @@ jspm_packages/
 
 # gatsby files
 .cache/
-public
 
 # Mac files
 .DS_Store

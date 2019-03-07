@@ -6,7 +6,7 @@
     "declaration": true,
     "outDir": "lib",
     "rootDir": "src",
-    "strict": true,
+    "strict": false,
     "types": ["node"],
     "esModuleInterop": true,
     "resolveJsonModule": true

@@ -13,8 +13,13 @@
   "scripts": {
     "create": "yarn run build && yarn run test",
     "build": "tsc -p .",
-    "test": "yarn build && reddit-saved",
-    "refresh": "rm -rf ./node_modules ./package-lock.json && yarn install"
+    "buildclient": "yarn --cwd ./src/server/src/ build",
+    "devclient": "yarn --cwd ./src/server/src/ develop",
+    "test": "yarn buildclient && yarn build && reddit-saved",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && yarn install",
+    "apiserver": "node lib/api/server.js",
+    "client": "http-server ./build/",
+    "server": "concurrently \"yarn run devclient\" \"yarn run apiserver\""
   },
   "author": "Chris Lucas",
   "license": "MIT",
@@ -28,7 +33,12 @@
   },
   "dependencies": {
     "cli-spinner": "^0.2.10",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "http-server": "^0.11.1",
+    "nodemon": "^1.18.10",
     "snoowrap": "^1.15.2"
   }
 }
