@@ -19,16 +19,16 @@ app.get("/", (req: any, res: any) => {
   res.json(fileData);
 });
 
-app.put("/addCategory/:id", (req: any, res: any) => {
+app.put("/addTag/:id", (req: any, res: any) => {
   let postId = req.params.id;
-  let category = req.body.category.toLowerCase();
+  let tag = req.body.tag.toLowerCase();
   let fileData = JSON.parse(
     fs.readFileSync(`${CURRENT}/tmp/saved.json`, "utf8")
   );
   fileData.map(post => {
     if (post.id === postId) {
-      if (!post.categories.includes(category)) {
-        post.categories.push(category);
+      if (!post.tags.includes(tag)) {
+        post.tags.push(tag);
       }
     }
     return post;
@@ -39,7 +39,7 @@ app.put("/addCategory/:id", (req: any, res: any) => {
   });
 });
 
-app.put("/removeCategory/:id", (req: any, res: any) => {
+app.put("/removeTag/:id", (req: any, res: any) => {
   // let name = JSON.parse(req.body);
   res.json({ message: "success" });
 });

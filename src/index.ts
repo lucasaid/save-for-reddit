@@ -119,7 +119,9 @@ if (grab || grabAll || !fileExists) {
         is_video: item.is_video ? item.is_video : false,
         media: item.media ? item.media : "",
         author: item.author,
-        categories: [item.subreddit.display_name],
+        parent_id: item.parent_id ? item.parent_id : false,
+        link_title: item.link_title ? item.link_title : "",
+        tags: [item.subreddit.display_name],
         deleted: false
       };
     });
@@ -152,10 +154,13 @@ function runServer() {
   let buildExists = fs.existsSync(`${CURRENT}/../build`);
   if (!buildExists) {
     console.log(`Building front end...`);
-    execSync(`cd "src/server" && yarn install && yarn build`, {
-      stdio: "inherit"
-    });
+    execSync(
+      `cd ${CURRENT} && cd "../src/server" && yarn install && yarn build`,
+      {
+        stdio: "inherit"
+      }
+    );
   }
 
-  execSync(`yarn run server`, { stdio: "inherit" });
+  execSync(`cd ${CURRENT} && yarn run server`, { stdio: "inherit" });
 }
