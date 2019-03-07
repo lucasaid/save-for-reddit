@@ -39,7 +39,7 @@ class RedditList extends React.Component {
       (item, index) =>
         Object.keys(item).length > 0 && (
           <div key={index} className={`${styles.post}`}>
-            <a href={item.url} target="_blank">
+            <a href={item.url} target="_blank" rel="noopener noreferrer">
               {item.title !== "" ? item.title : item.selftext}
             </a>
           </div>

@@ -1,3 +1,14 @@
 .post {
-  padding: 30px;
+  font-family: "Open Sans";
+  padding: 30px 0;
+  a {
+    color: #111111;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+input {
+  font-family: "Open Sans";
+  padding: 20px;
+  width: 100%;
 }

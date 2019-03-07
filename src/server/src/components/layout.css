@@ -4,9 +4,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+  font-family: "Open Sans";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 article,
 aside,
@@ -185,8 +186,8 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
+  font: 112.5%/1.45em georgia, serif;
   overflow-y: scroll;
 }
 * {
@@ -201,26 +202,32 @@ html {
 body {
   color: hsla(0, 0%, 0%, 0.8);
   font-family: georgia, serif;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  font-kerning: normal;
+  font-weight: normal;
+  word-wrap: break-word;
 }
 img {
-  max-width: 100%;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
+  max-width: 100%;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 h1 {
+  color: inherit;
+  font-family: "Oswald";
+  font-size: 2.25rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -228,16 +235,16 @@ h1 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
 }
 h2 {
+  color: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.62671rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -245,16 +252,16 @@ h2 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
-  line-height: 1.1;
 }
 h3 {
+  color: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.38316rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -262,16 +269,16 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
-  line-height: 1.1;
 }
 h4 {
+  color: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -279,16 +286,16 @@ h4 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1rem;
-  line-height: 1.1;
 }
 h5 {
+  color: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 0.85028rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -296,33 +303,27 @@ h5 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 0.85028rem;
-  line-height: 1.1;
 }
 h6 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
+  font-weight: bold;
   line-height: 1.1;
+  margin-bottom: 1.45rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  text-rendering: optimizeLegibility;
 }
 hgroup {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -330,9 +331,11 @@ hgroup {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 ul {
+  list-style-image: none;
+  list-style-position: outside;
+  margin-bottom: 1.45rem;
   margin-left: 1.45rem;
   margin-right: 0;
   margin-top: 0;
@@ -340,11 +343,11 @@ ul {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
 }
 ol {
+  list-style-image: none;
+  list-style-position: outside;
+  margin-bottom: 1.45rem;
   margin-left: 1.45rem;
   margin-right: 0;
   margin-top: 0;
@@ -352,11 +355,9 @@ ol {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
 }
 dl {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -364,9 +365,9 @@ dl {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 dd {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -374,9 +375,9 @@ dd {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 p {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -384,9 +385,9 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 figure {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -394,22 +395,25 @@ figure {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 pre {
+  background: hsla(0, 0%, 0%, 0.04);
+  border-radius: 3px;
+  font-size: 0.85rem;
+  line-height: 1.42;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
-  margin-bottom: 1.45rem;
-  font-size: 0.85rem;
-  line-height: 1.42;
-  background: hsla(0, 0%, 0%, 0.04);
-  border-radius: 3px;
   overflow: auto;
-  word-wrap: normal;
   padding: 1.45rem;
+  word-wrap: normal;
 }
 table {
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.45rem;
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -417,13 +421,10 @@ table {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  font-size: 1rem;
-  line-height: 1.45rem;
-  border-collapse: collapse;
   width: 100%;
 }
 fieldset {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -431,9 +432,9 @@ fieldset {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 blockquote {
+  margin-bottom: 1.45rem;
   margin-left: 1.45rem;
   margin-right: 1.45rem;
   margin-top: 0;
@@ -441,9 +442,9 @@ blockquote {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 form {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -451,9 +452,9 @@ form {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 noscript {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -461,9 +462,9 @@ noscript {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 iframe {
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -471,22 +472,12 @@ iframe {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 hr {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: calc(1.45rem - 1px);
   background: hsla(0, 0%, 0%, 0.2);
   border: none;
   height: 1px;
-}
-address {
+  margin-bottom: calc(1.45rem - 1px);
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -494,7 +485,16 @@ address {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
+}
+address {
   margin-bottom: 1.45rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
 }
 b {
   font-weight: bold;
@@ -518,13 +518,13 @@ ul li {
   padding-left: 0;
 }
 li > ol {
-  margin-left: 1.45rem;
   margin-bottom: calc(1.45rem / 2);
+  margin-left: 1.45rem;
   margin-top: calc(1.45rem / 2);
 }
 li > ul {
-  margin-left: 1.45rem;
   margin-bottom: calc(1.45rem / 2);
+  margin-left: 1.45rem;
   margin-top: calc(1.45rem / 2);
 }
 blockquote *:last-child {
@@ -569,16 +569,16 @@ thead {
 }
 td,
 th {
-  text-align: left;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
-  font-feature-settings: "tnum";
   -moz-font-feature-settings: "tnum";
   -ms-font-feature-settings: "tnum";
   -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  padding-bottom: calc(0.725rem - 1px);
   padding-left: 0.96667rem;
   padding-right: 0.96667rem;
   padding-top: 0.725rem;
-  padding-bottom: calc(0.725rem - 1px);
+  text-align: left;
 }
 th:first-child,
 td:first-child {
@@ -595,8 +595,8 @@ code {
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;
-  padding-top: 0.2em;
   padding-bottom: 0.2em;
+  padding-top: 0.2em;
 }
 pre code {
   background: none;
@@ -606,8 +606,8 @@ code:before,
 code:after,
 tt:before,
 tt:after {
-  letter-spacing: -0.2em;
   content: " ";
+  letter-spacing: -0.2em;
 }
 pre code:before,
 pre code:after,
