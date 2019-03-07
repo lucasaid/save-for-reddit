@@ -29,8 +29,14 @@ class RedditList extends React.Component {
   search(e) {
     let filtered = this.state.data.filter(item => {
       if (Object.keys(item).length > 0) {
+        let incat = item.categories.some(category => {
+          return (
+            category.toLowerCase().search(e.target.value.toLowerCase()) >= 0
+          )
+        })
         return (
-          item.title.toLowerCase().search(e.target.value.toLowerCase()) >= 0
+          item.title.toLowerCase().search(e.target.value.toLowerCase()) >= 0 ||
+          incat
         )
       }
       return false
