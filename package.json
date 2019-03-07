@@ -13,13 +13,14 @@
   "scripts": {
     "create": "yarn run build && yarn run test",
     "build": "tsc -p .",
-    "buildclient": "yarn --cwd ./src/server/src/ build",
-    "devclient": "yarn --cwd ./src/server/src/ develop",
+    "buildclient": "yarn --cwd ./src/server/ build",
+    "devclient": "yarn --cwd ./src/server/ develop",
+    "t": "yarn build && save-for-reddit",
     "test": "yarn buildclient && yarn build && save-for-reddit",
-    "refresh": "rm -rf ./node_modules ./package-lock.json && yarn install",
     "apiserver": "node lib/api/server.js",
-    "client": "http-server ./build/",
-    "server": "concurrently \"yarn run devclient\" \"yarn run apiserver\""
+    "client": "http-server ./build/ -p 8000",
+    "serverDev": "concurrently \"yarn run devclient\" \"yarn run apiserver\"",
+    "server": "concurrently \"yarn run client\" \"yarn run apiserver\""
   },
   "author": "Chris Lucas",
   "license": "MIT",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "^11.10.4",
+    "@types/readline-sync": "^1.4.3",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"
   },
@@ -39,6 +41,7 @@
     "express": "^4.16.4",
     "http-server": "^0.11.1",
     "nodemon": "^1.18.10",
+    "readline-sync": "^1.4.9",
     "snoowrap": "^1.15.2"
   }
 }
