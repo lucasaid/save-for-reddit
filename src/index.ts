@@ -119,7 +119,8 @@ if (grab || grabAll || !fileExists) {
         is_video: item.is_video ? item.is_video : false,
         media: item.media ? item.media : "",
         author: item.author,
-        categories: [item.subreddit]
+        categories: [item.subreddit.display_name],
+        deleted: false
       };
     });
     if (fileJSON) {

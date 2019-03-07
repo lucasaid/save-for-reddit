@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import styles from "./reddit-list.module.scss"
+import Post from "./post"
 
 class RedditList extends React.Component {
   constructor(props) {
@@ -10,11 +10,16 @@ class RedditList extends React.Component {
       filtered: [],
     }
     this.renderData = this.renderData.bind(this)
+
     this.search = this.search.bind(this)
+    this.removePost = this.removePost.bind(this)
+    this.update = this.update.bind(this)
   }
   componentDidMount() {
+    this.update()
+  }
+  update() {
     axios.get("http://localhost:3000/").then(res => {
-      console.log(res.data)
       this.setState({
         data: res.data,
         filtered: res.data,
@@ -34,15 +39,31 @@ class RedditList extends React.Component {
       filtered,
     })
   }
+  removePost = id => {
+    axios.delete(`http://localhost:3000/deletePost/${id}`).then(res => {
+      this.update()
+    })
+  }
+
+  addCategory = (id, value) => {
+    axios
+      .put(`http://localhost:3000/addCategory/${id}`, {
+        category: value,
+      })
+      .then(res => {
+        this.update()
+      })
+  }
   renderData() {
     return this.state.filtered.map(
       (item, index) =>
         Object.keys(item).length > 0 && (
-          <div key={index} className={`${styles.post}`}>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
-              {item.title !== "" ? item.title : item.selftext}
-            </a>
-          </div>
+          <Post
+            key={index}
+            post={item}
+            removePost={this.removePost}
+            addCategory={this.addCategory}
+          />
         )
     )
   }
