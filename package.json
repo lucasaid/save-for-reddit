@@ -1,21 +1,21 @@
 {
-  "name": "reddit-saved-oragniser",
+  "name": "save-organiser-for-reddit",
   "version": "1.0.0",
-  "description": "App to organise reddit saved posts",
+  "description": "App to organise saved posts for reddit",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lucasaid/reddit-saved-oragniser.git"
+    "url": "https://github.com/lucasaid/save-organiser-for-reddit.git"
   },
   "bugs": {
-    "url": "https://github.com/lucasaid/reddit-saved-oragniser/issues"
+    "url": "https://github.com/lucasaid/save-organiser-for-reddit/issues"
   },
   "scripts": {
     "create": "yarn run build && yarn run test",
     "build": "tsc -p .",
     "buildclient": "yarn --cwd ./src/server/src/ build",
     "devclient": "yarn --cwd ./src/server/src/ develop",
-    "test": "yarn buildclient && yarn build && reddit-saved",
+    "test": "yarn buildclient && yarn build && save-for-reddit",
     "refresh": "rm -rf ./node_modules ./package-lock.json && yarn install",
     "apiserver": "node lib/api/server.js",
     "client": "http-server ./build/",
@@ -24,7 +24,7 @@
   "author": "Chris Lucas",
   "license": "MIT",
   "bin": {
-    "reddit-saved": "./lib/index.js"
+    "save-for-reddit": "./lib/index.js"
   },
   "devDependencies": {
     "@types/node": "^11.10.4",
