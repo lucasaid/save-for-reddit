@@ -1,5 +1,6 @@
 import React from "react"
 import Truncate from "react-truncate"
+import axios from "axios"
 import styles from "./reddit-list.module.scss"
 
 class Post extends React.PureComponent {
@@ -9,6 +10,7 @@ class Post extends React.PureComponent {
       tagOpen: false,
     }
     this.taginput = React.createRef()
+    this.addTag = this.addTag.bind(this)
   }
   tags = () => {
     return this.props.post.tags.map((tag, index) => (
@@ -17,18 +19,35 @@ class Post extends React.PureComponent {
       </div>
     ))
   }
-  // const removePostThis = e => {
-  //   removePost(post.id)
-  // }
-  addTagThis = e => {
-    if (e.key === "Enter") {
-      this.props.addTag(this.props.post.id, e.target.value)
-      e.target.value = ""
-      this.setState({
-        tagOpen: false,
+  removePost = e => {
+    e.preventDefault()
+    let endpoint = "deletePost"
+    if (this.props.post.delete) {
+      endpoint = "restorePost"
+    }
+    axios
+      .put(`http://localhost:3000/${endpoint}/${this.props.post.id}`)
+      .then(res => {
+        this.props.update()
       })
+  }
+
+  addTag = e => {
+    if (e.key === "Enter") {
+      axios
+        .put(`http://localhost:3000/addTag/${this.props.post.id}`, {
+          tag: e.target.value,
+        })
+        .then(res => {
+          this.setState({
+            tagOpen: false,
+          })
+          this.props.update()
+        })
+      e.target.value = ""
     }
   }
+
   showTagInput = e => {
     e.preventDefault()
     this.setState(
@@ -81,7 +100,7 @@ class Post extends React.PureComponent {
               type="text"
               ref={this.taginput}
               className={styles.taginput}
-              onKeyPress={this.addTagThis}
+              onKeyPress={this.addTag}
             />
           </div>
         )}
@@ -93,6 +112,15 @@ class Post extends React.PureComponent {
             className={styles.addtag}
           >
             {this.state.tagOpen ? `-` : `+`}
+          </a>
+        </div>
+        <div className={styles.removebar}>
+          <a
+            href="#sendtotrash"
+            onClick={this.removePost}
+            className={styles.trash}
+          >
+            {this.props.post.delete ? `restore` : `remove`}
           </a>
         </div>
       </div>

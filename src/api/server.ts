@@ -29,8 +29,9 @@ app.put("/addTag/:id", (req: any, res: any) => {
   fileData.map(post => {
     if (post.id === postId) {
       tagsArray.forEach(tag => {
-        if (!post.tags.includes(tag)) {
-          post.tags.push(tag.trim());
+        let trimmedTag = tag.trim();
+        if (!post.tags.includes(trimmedTag) && trimmedTag !== "") {
+          post.tags.push(trimmedTag.trim());
         }
       });
     }
@@ -47,7 +48,7 @@ app.put("/removeTag/:id", (req: any, res: any) => {
   res.json({ message: "success" });
 });
 
-app.delete("/deletePost/:id", (req: any, res: any) => {
+app.put("/deletePost/:id", (req: any, res: any) => {
   let postId = req.params.id;
   let fileData = JSON.parse(
     fs.readFileSync(`${CURRENT}/tmp/saved.json`, "utf8")
@@ -55,6 +56,22 @@ app.delete("/deletePost/:id", (req: any, res: any) => {
   fileData.map(post => {
     if (post.id === postId) {
       post.delete = true;
+    }
+    return post;
+  });
+  let jsonstring = JSON.stringify(fileData);
+  fs.writeFile(`${CURRENT}/tmp/saved.json`, jsonstring, () => {
+    res.json({ message: "success" });
+  });
+});
+app.put("/restorePost/:id", (req: any, res: any) => {
+  let postId = req.params.id;
+  let fileData = JSON.parse(
+    fs.readFileSync(`${CURRENT}/tmp/saved.json`, "utf8")
+  );
+  fileData.map(post => {
+    if (post.id === postId) {
+      post.delete = false;
     }
     return post;
   });

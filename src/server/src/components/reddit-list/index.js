@@ -13,9 +13,7 @@ class RedditList extends React.PureComponent {
       search: "",
     }
     this.renderData = this.renderData.bind(this)
-
     this.search = this.search.bind(this)
-    this.removePost = this.removePost.bind(this)
     this.update = this.update.bind(this)
     this.filterResults = this.filterResults.bind(this)
     this.filterResultsThrottled = debounce(500, this.autocompleteSearch)
@@ -66,7 +64,6 @@ class RedditList extends React.PureComponent {
     }
   }
   search(e) {
-    console.log("search")
     this.setState(
       {
         search: e.target.value,
@@ -76,33 +73,15 @@ class RedditList extends React.PureComponent {
       }
     )
   }
-  removePost = id => {
-    axios.delete(`http://localhost:3000/deletePost/${id}`).then(res => {
-      this.update()
-    })
-  }
-
-  addTag = (id, value) => {
-    axios
-      .put(`http://localhost:3000/addTag/${id}`, {
-        tag: value,
-      })
-      .then(res => {
-        this.update()
-      })
-  }
   renderData() {
     return this.state.filtered.map(
       (item, index) =>
-        Object.keys(item).length > 0 && (
+        Object.keys(item).length > 0 &&
+        (!item.delete && (
           <LazyLoad key={index} height={200} offset={100}>
-            <Post
-              post={item}
-              removePost={this.removePost}
-              addTag={this.addTag}
-            />
+            <Post post={item} update={this.update} />
           </LazyLoad>
-        )
+        ))
     )
   }
   render() {
