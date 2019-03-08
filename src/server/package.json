@@ -19,7 +19,9 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
-    "react-truncate": "^2.4.0"
+    "react-lazyload": "^2.5.0",
+    "react-truncate": "^2.4.0",
+    "throttle-debounce": "^2.1.0"
   },
   "devDependencies": {
     "gatsby-plugin-sass": "^2.0.10",

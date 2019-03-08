@@ -1,8 +1,8 @@
-import React from "react"
+import React, { memo } from "react"
 import Truncate from "react-truncate"
 import styles from "./reddit-list.module.scss"
 
-const Post = ({ post, removePost, addTag }) => {
+const Post = memo(({ post, removePost, addTag }) => {
   const tags = () => {
     return post.tags.map((tag, index) => <div key={index}>{tag}</div>)
   }
@@ -33,7 +33,7 @@ const Post = ({ post, removePost, addTag }) => {
         <p>
           <Truncate lines={6}>
             {post.selftext_html && (
-              <p dangerouslySetInnerHTML={{ __html: post.selftext_html }} />
+              <span dangerouslySetInnerHTML={{ __html: post.selftext_html }} />
             )}
           </Truncate>
         </p>
@@ -42,6 +42,6 @@ const Post = ({ post, removePost, addTag }) => {
       {tags()}
     </div>
   )
-}
+})
 
 export default Post

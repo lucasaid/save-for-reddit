@@ -1,8 +1,10 @@
 import React from "react"
 import axios from "axios"
+import LazyLoad from "react-lazyload"
+import { debounce } from "throttle-debounce"
 import Post from "./post"
 
-class RedditList extends React.Component {
+class RedditList extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,6 +18,7 @@ class RedditList extends React.Component {
     this.removePost = this.removePost.bind(this)
     this.update = this.update.bind(this)
     this.filterResults = this.filterResults.bind(this)
+    this.filterResultsThrottled = debounce(500, this.autocompleteSearch)
   }
   componentDidMount() {
     this.update()
@@ -33,8 +36,12 @@ class RedditList extends React.Component {
       )
     })
   }
-  filterResults() {
-    if (this.state.search !== "") {
+  autocompleteSearch = () => {
+    this.filterResults()
+  }
+  filterResults = () => {
+    if (this.state.search && this.state.search !== "") {
+      console.log("Filtering")
       let filtered = this.state.data.filter(item => {
         if (Object.keys(item).length > 0) {
           let incat = item.tags.some(tag => {
@@ -52,15 +59,20 @@ class RedditList extends React.Component {
       this.setState({
         filtered,
       })
+    } else {
+      this.setState({
+        filtered: this.state.data,
+      })
     }
   }
   search(e) {
+    console.log("search")
     this.setState(
       {
         search: e.target.value,
       },
       () => {
-        this.filterResults()
+        this.filterResultsThrottled()
       }
     )
   }
@@ -83,12 +95,14 @@ class RedditList extends React.Component {
     return this.state.filtered.map(
       (item, index) =>
         Object.keys(item).length > 0 && (
-          <Post
-            key={index}
-            post={item}
-            removePost={this.removePost}
-            addTag={this.addTag}
-          />
+          <LazyLoad height={200} offset={100}>
+            <Post
+              key={index}
+              post={item}
+              removePost={this.removePost}
+              addTag={this.addTag}
+            />
+          </LazyLoad>
         )
     )
   }
