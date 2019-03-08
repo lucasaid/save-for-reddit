@@ -12,6 +12,46 @@ input {
   padding: 20px;
   width: 100%;
 }
+.taginputwrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  span {
+    font-weight: bold;
+    white-space: nowrap;
+    width: 100px;
+  }
+}
 .taginput {
-  display: none;
+  margin: 20px 0;
+  padding: 10px;
+}
+.tags {
+  align-items: stretch;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+}
+.tag {
+  align-items: center;
+  background-color: #0074d9;
+  border-radius: 30px;
+  color: #7fdbff;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  margin-right: 10px;
+  padding: 2px 10px;
+}
+a.addtag {
+  align-items: center;
+  background-color: #3d9970;
+  border-radius: 30px;
+  color: #ffffff;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: center;
+  padding: 3px 10px;
+  width: 30px;
 }
