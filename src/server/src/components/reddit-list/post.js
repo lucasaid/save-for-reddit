@@ -21,7 +21,6 @@ const Post = memo(({ post, removePost, addTag }) => {
         href={post.url ? post.url : `https://reddit.com/${post.permalink}`}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={removePostThis}
       >
         <h2>
           <Truncate lines={2}>
