@@ -4,5 +4,5 @@
 - Add backup flag in env file
 - Ability to download content locally
 - Remove post
-- Multitag add
-- tag browser
+- Tag Browser
+- Rescrape Button

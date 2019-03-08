@@ -21,15 +21,18 @@ app.get("/", (req: any, res: any) => {
 
 app.put("/addTag/:id", (req: any, res: any) => {
   let postId = req.params.id;
-  let tag = req.body.tag.toLowerCase();
+  let tags = req.body.tag.toLowerCase();
   let fileData = JSON.parse(
     fs.readFileSync(`${CURRENT}/tmp/saved.json`, "utf8")
   );
+  let tagsArray = tags.split(",");
   fileData.map(post => {
     if (post.id === postId) {
-      if (!post.tags.includes(tag)) {
-        post.tags.push(tag);
-      }
+      tagsArray.forEach(tag => {
+        if (!post.tags.includes(tag)) {
+          post.tags.push(tag.trim());
+        }
+      });
     }
     return post;
   });

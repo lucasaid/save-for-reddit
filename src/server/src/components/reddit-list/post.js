@@ -8,6 +8,7 @@ class Post extends React.PureComponent {
     this.state = {
       tagOpen: false,
     }
+    this.taginput = React.createRef()
   }
   tags = () => {
     return this.props.post.tags.map((tag, index) => (
@@ -30,9 +31,17 @@ class Post extends React.PureComponent {
   }
   showTagInput = e => {
     e.preventDefault()
-    this.setState({
-      tagOpen: !this.state.tagOpen,
-    })
+    this.setState(
+      {
+        tagOpen: !this.state.tagOpen,
+      },
+      () => {
+        if (this.taginput.current) {
+          console.log(this.taginput.current)
+          this.taginput.current.focus()
+        }
+      }
+    )
   }
   render() {
     return (
@@ -70,6 +79,7 @@ class Post extends React.PureComponent {
             <span>Add Tag</span>
             <input
               type="text"
+              ref={this.taginput}
               className={styles.taginput}
               onKeyPress={this.addTagThis}
             />

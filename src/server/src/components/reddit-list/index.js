@@ -95,9 +95,8 @@ class RedditList extends React.PureComponent {
     return this.state.filtered.map(
       (item, index) =>
         Object.keys(item).length > 0 && (
-          <LazyLoad height={200} offset={100}>
+          <LazyLoad key={index} height={200} offset={100}>
             <Post
-              key={index}
               post={item}
               removePost={this.removePost}
               addTag={this.addTag}
