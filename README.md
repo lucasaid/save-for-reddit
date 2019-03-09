@@ -18,7 +18,7 @@ run `npm install -g save-for-reddit`
 
 ### NOTE:
 
-- Right now this is not ready to be pushed to NPM, if you would like to check it out clone this repo, then run a `npm link` on the directory, or run `node ./lib/index.js`
+- Right now this is still a work in progress and not ready to be pushed to NPM, if you would like to check it out clone this repo, then run a `npm link` on the directory, or run `node ./lib/index.js`
 - The data is only pulled in once, in order to update the data you will need to run `save-for-reddit -g`
 - To grab everything and reset the data completely run `save-for-reddit -ga` (NOTE: this will erase all the tags you have added ect)
 - To set a limit to what you grab run `save-for-reddit -g -l 10`
