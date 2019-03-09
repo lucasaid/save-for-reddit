@@ -1,14 +1,14 @@
 {
-  "name": "save-organiser-for-reddit",
+  "name": "save-for-reddit",
   "version": "1.0.0",
   "description": "App to organise saved posts for reddit",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lucasaid/save-organiser-for-reddit.git"
+    "url": "https://github.com/lucasaid/save-for-reddit.git"
   },
   "bugs": {
-    "url": "https://github.com/lucasaid/save-organiser-for-reddit/issues"
+    "url": "https://github.com/lucasaid/save-for-reddit/issues"
   },
   "scripts": {
     "build": "tsc -p .",
@@ -39,6 +39,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "http-server": "^0.11.1",
+    "mkdirp": "^0.5.1",
     "nodemon": "^1.18.10",
     "readline-sync": "^1.4.9",
     "snoowrap": "^1.15.2"

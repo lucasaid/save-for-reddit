@@ -2,6 +2,7 @@
 
 import snoowrap from "snoowrap";
 import fs from "fs";
+import mkdirp from "mkdirp";
 import { Spinner } from "cli-spinner";
 import readlineSync from "readline-sync";
 import { execSync } from "child_process";
@@ -129,9 +130,13 @@ if (grab || grabAll || !fileExists) {
       formattedData = formattedData.concat(fileJSON);
     }
     let jsonstring = JSON.stringify(formattedData);
-    fs.writeFile(`${CURRENT}/../tmp/saved.json`, jsonstring, () => {
-      spinner.stop(true);
-      runServer();
+    mkdirp(`${CURRENT}/../tmp`, function(err) {
+      if (err) return false;
+
+      fs.writeFile(`${CURRENT}/../tmp/saved.json`, jsonstring, () => {
+        spinner.stop(true);
+        runServer();
+      });
     });
   };
   if (limit) {
