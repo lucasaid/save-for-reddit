@@ -11,12 +11,10 @@
     "url": "https://github.com/lucasaid/save-organiser-for-reddit/issues"
   },
   "scripts": {
-    "create": "yarn run build && yarn run test",
     "build": "tsc -p .",
     "buildclient": "yarn --cwd ./src/server/ build",
     "devclient": "yarn --cwd ./src/server/ develop",
-    "t": "yarn build && save-for-reddit",
-    "test": "yarn buildclient && yarn build && save-for-reddit",
+    "test": "yarn build && serverDev",
     "apiserver": "node lib/api/server.js",
     "client": "http-server ./build/ -p 8000",
     "serverDev": "concurrently \"yarn run devclient\" \"yarn run apiserver\"",
