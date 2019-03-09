@@ -3,6 +3,8 @@
 This is a small local webserver that pulls your data from your reddit saved posts.  
 It will allow you to tag, search and organise your saved posts.
 
+## NOTE: STILL A WORK IN PROGRESS
+
 ## Installing
 
 run `npm install -g save-for-reddit`
