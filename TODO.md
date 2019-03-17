@@ -6,3 +6,4 @@
 - Remove post
 - Tag Browser
 - Rescrape Button
+- Add count
