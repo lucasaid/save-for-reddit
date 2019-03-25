@@ -9,11 +9,6 @@ import styles from "./page.module.scss"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <div className={styles.header}>
-      <Link to={`/`} className={styles.headerlink}>
-        Back
-      </Link>
-    </div>
     <RedditListTrash />
   </Layout>
 )

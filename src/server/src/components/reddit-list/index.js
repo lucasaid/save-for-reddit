@@ -1,8 +1,10 @@
+import { Link } from "gatsby"
 import React from "react"
 import axios from "axios"
 import LazyLoad from "react-lazyload"
 import { debounce } from "throttle-debounce"
 import Post from "./post"
+import styles from "./reddit-list.module.scss"
 
 class RedditList extends React.PureComponent {
   constructor(props) {
@@ -84,9 +86,26 @@ class RedditList extends React.PureComponent {
         ))
     )
   }
+  renderHeader() {
+    const postLength = this.state.filtered.reduce((count, current) => {
+      if (!current.delete) {
+        return count + 1
+      }
+      return count
+    }, 0)
+    return (
+      <div className={styles.header}>
+        {postLength} Posts
+        <Link to={`/trash`} className={styles.headerlink}>
+          View Trash
+        </Link>
+      </div>
+    )
+  }
   render() {
     return (
       <div>
+        {this.renderHeader()}
         <input type="text" onChange={this.search} />
         {this.renderData()}
       </div>
