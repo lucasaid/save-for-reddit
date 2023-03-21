@@ -19,7 +19,8 @@ module.exports = {
       options: {
         fonts: [
           `Oswald`,
-          `Open Sans\:400,700`
+          `Open Sans\:400,700`,
+          'material icons',
         ],
         display: 'swap'
       }

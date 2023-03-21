@@ -42,21 +42,18 @@ input {
   color: #7fdbff;
   display: flex;
   font-size: 12px;
+  font-weight: bold;
   justify-content: center;
   margin-right: 10px;
   padding: 2px 10px;
 }
 a.addtag {
   align-items: center;
-  background-color: #3d9970;
-  border-radius: 30px;
-  color: #ffffff;
+  color: #3d9970;
   display: flex;
-  font-size: 16px;
   font-weight: bold;
   justify-content: center;
   padding: 3px 10px;
-  width: 30px;
 }
 .removebar {
   align-items: stretch;
@@ -65,13 +62,19 @@ a.addtag {
   justify-content: flex-end;
   margin-top: 10px;
 }
-a.trash {
+a.threadlink {
   align-items: center;
-  background-color: #ff4136;
   border-radius: 30px;
-  color: #ffffff;
   display: flex;
   font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  padding: 2px 10px;
+}
+a.trash {
+  align-items: center;
+  color: #ff4136;
+  display: flex;
   font-weight: bold;
   justify-content: center;
   padding: 2px 10px;
@@ -86,4 +89,8 @@ a.trash {
   color: #0074d9;
   font-family: "Open Sans";
   text-decoration: none;
+}
+.materialicons {
+  font-family: 'Material Icons';
+  font-size: 24px;
 }

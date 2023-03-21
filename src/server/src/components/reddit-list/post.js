@@ -103,25 +103,40 @@ class Post extends React.PureComponent {
               className={styles.taginput}
               onKeyPress={this.addTag}
             />
+            <a
+              href="#showtaginput"
+              onClick={this.showTagInput}
+              className={styles.addtag}
+            >
+              <span className={styles.materialicons}>cancel</span>
+            </a>
           </div>
         )}
-        <div className={styles.tags}>
+        {!this.state.tagOpen && (<div className={styles.tags}>
           {this.tags()}
           <a
             href="#showtaginput"
             onClick={this.showTagInput}
             className={styles.addtag}
           >
-            {this.state.tagOpen ? `-` : `+`}
+            <span className={styles.materialicons}>new_label</span>
           </a>
-        </div>
+        </div>)}
         <div className={styles.removebar}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.threadlink}
+            href={`https://reddit.com${this.props.post.permalink}`}
+          >
+            Thread Link
+          </a>
           <a
             href="#sendtotrash"
             onClick={this.removePost}
             className={styles.trash}
           >
-            {this.props.post.delete ? `restore` : `remove`}
+            <span className={styles.materialicons}>{this.props.post.delete ? `restore_from_trash` : `delete`}</span>
           </a>
         </div>
       </div>
