@@ -4,7 +4,7 @@ import axios from "axios"
 import LazyLoad from "react-lazyload"
 import { debounce } from "throttle-debounce"
 import Post from "./post"
-import styles from "./reddit-list.module.scss"
+import * as styles from "./reddit-list.module.scss"
 
 class RedditList extends React.PureComponent {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from "react"
 import Truncate from "react-truncate"
-import styles from "./reddit-list.module.scss"
+import * as styles from "./reddit-list.module.scss"
 
 const Post = ({ post, removePost, addTag }) => {
   const tags = () => {

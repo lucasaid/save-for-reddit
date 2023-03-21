@@ -1,7 +1,7 @@
 import React from "react"
 import Truncate from "react-truncate"
 import axios from "axios"
-import styles from "./reddit-list.module.scss"
+import * as styles from "./reddit-list.module.scss"
 
 class Post extends React.PureComponent {
   constructor(props) {
@@ -92,6 +92,7 @@ class Post extends React.PureComponent {
               )}
             </Truncate>
           </p>
+          {this.props.post.preview && this.props.post.preview.images[0] && this.props.post.preview.images[0].resolutions[2] && <img src={this.props.post.preview.images[0].resolutions[2].url} />}
         </a>
         {this.state.tagOpen && (
           <div className={styles.taginputwrapper}>
