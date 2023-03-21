@@ -40,13 +40,13 @@ if (fileExists && !grabAll) {
   });
 }
 if (grab || grabAll || !fileExists) {
-  let clientId, clientSecret, username, password;
+  let clientId, clientSecret, username, password, refreshToken, accessToken;
   let envExists = fs.existsSync(`${CURRENT}/../.env`);
   if (
     !process.env.CLIENT_ID ||
     !process.env.CLIENT_SECRET ||
-    !process.env.REDDIT_USER ||
-    !process.env.REDDIT_PASS ||
+    !process.env.REFRESH_TOKEN ||
+    !process.env.ACCESS_TOKEN ||
     !envExists
   ) {
     console.log(
@@ -61,31 +61,28 @@ if (grab || grabAll || !fileExists) {
     clientSecret = readlineSync.question(
       styleText(`Please enter reddit Client Secret: `, "yellow")
     );
-    username = readlineSync.question(
-      styleText(`Please enter reddit Username: `, "yellow")
+    refreshToken = readlineSync.question(
+      styleText(`Please enter refreshToken: `, "yellow")
     );
-    password = readlineSync.question(
-      styleText(`Please enter reddit Password: `, "yellow"),
-      {
-        hideEchoBack: true
-      }
+    accessToken = readlineSync.question(
+      styleText(`Please enter accessToken: `, "yellow")
     );
     fs.writeFileSync(
       `${CURRENT}/../.env`,
-      `CLIENT_ID=${clientId}\nCLIENT_SECRET=${clientSecret}\nREDDIT_USER=${username}\nREDDIT_PASS=${password}`
+      `CLIENT_ID=${clientId}\nCLIENT_SECRET=${clientSecret}\nREFRESH_TOKEN=${refreshToken}\nACCESS_TOKEN=${accessToken}`
     );
   } else {
     clientId = process.env.CLIENT_ID;
     clientSecret = process.env.CLIENT_SECRET;
-    username = process.env.REDDIT_USER;
-    password = process.env.REDDIT_PASS;
+    refreshToken = process.env.REFRESH_TOKEN;
+    accessToken = process.env.ACCESS_TOKEN;
   }
   const r = new snoowrap({
     userAgent: "reddit-saved-node",
     clientId,
     clientSecret,
-    username,
-    password
+    refreshToken,
+    accessToken
   });
 
   var spinner = new Spinner("processing.. %s");
